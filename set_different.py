@@ -1,0 +1,5 @@
+n = int(input())
+my_set_1 = set(map(int, input().split()))
+m = int(input())
+my_set_2 = set(map(int, input().split())) 
+print(len(my_set_1.difference(my_set_2)))
