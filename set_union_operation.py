@@ -1,0 +1,6 @@
+a = int(input())
+my_set_1 = set(map(int, input().split()))
+b = int(input())
+my_set_2 = set(map(int, input().split()))
+union_set = my_set_1.union(my_set_2)
+print(len(union_set))
