@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chúc Mừng Giáng Sinh!</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap");
+
+      body {
+        margin: 0;
+        height: 100vh;
+        background: radial-gradient(
+          ellipse at bottom,
+          #1b2735 0%,
+          #090a0f 100%
+        );
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Mountains of Christmas", cursive;
+      }
+
+      /* Hiệu ứng chữ phát sáng */
+      .greeting-container {
+        text-align: center;
+        z-index: 10;
+      }
+
+      h1 {
+        font-size: 5rem;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        /* Tạo hiệu ứng bóng đổ 3D màu đỏ/xanh */
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff00de,
+          0 0 80px #ff00de, 0 0 120px #ff00de;
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+            0 0 40px #e60073, 0 0 50px #e60073;
+        }
+        to {
+          text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+            0 0 50px #ff4da6, 0 0 60px #ff4da6;
+        }
+      }
+
+      p {
+        color: #e0e0e0;
+        font-size: 1.5rem;
+        margin-top: -20px;
+      }
+
+      /* Thiết lập cho bông tuyết */
+      .snowflake {
+        position: absolute;
+        top: -10px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(105vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="greeting-container">
+      <h1>Merry Christmas!</h1>
+      <p>Chúc bạn một mùa Giáng sinh an lành và ấm áp.</p>
+    </div>
+
+    <script>
+      // Đoạn JS ngắn để tạo ra các bông tuyết ngẫu nhiên
+      function createSnow() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+
+        // Kích thước ngẫu nhiên
+        const size = Math.random() * 5 + 2 + "px";
+        snowflake.style.width = size;
+        snowflake.style.height = size;
+
+        // Vị trí bắt đầu ngẫu nhiên theo chiều ngang
+        snowflake.style.left = Math.random() * 100 + "vw";
+
+        // Tốc độ rơi ngẫu nhiên
+        const duration = Math.random() * 3 + 5 + "s";
+        snowflake.style.animationDuration = duration;
+
+        // Độ mờ ngẫu nhiên để tạo chiều sâu
+        snowflake.style.opacity = Math.random();
+
+        document.body.appendChild(snowflake);
+
+        // Xóa bông tuyết khi nó rơi khỏi màn hình để tránh nặng máy
+        setTimeout(() => {
+          snowflake.remove();
+        }, parseFloat(duration) * 1000);
+      }
+
+      // Tạo bông tuyết mới mỗi 100ms
+      setInterval(createSnow, 100);
+    </script>
+  </body>
+</html>
